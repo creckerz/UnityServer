@@ -1,0 +1,13 @@
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.csprojAssemblyReference.cache
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.AssemblyInfoInputs.cache
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.AssemblyInfo.cs
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.csproj.CoreCompileInputs.cache
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\bin\Debug\netcoreapp3.1\ServerClient.exe
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\bin\Debug\netcoreapp3.1\ServerClient.deps.json
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\bin\Debug\netcoreapp3.1\ServerClient.runtimeconfig.json
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\bin\Debug\netcoreapp3.1\ServerClient.runtimeconfig.dev.json
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\bin\Debug\netcoreapp3.1\ServerClient.dll
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\bin\Debug\netcoreapp3.1\ServerClient.pdb
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.dll
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.pdb
+D:\Programme\C#\Unity Server\Unity Server\ServerClient\obj\Debug\netcoreapp3.1\ServerClient.genruntimeconfig.cache

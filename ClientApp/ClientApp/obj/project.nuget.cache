@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YRtNPwL955RBMbxVMEswWGbRNYoIsr5+Figt6cyVcRPdg5y7uVsqre3chPYkymvsZE/jDTT7z7En2yyFRlj3og==",
+  "success": true,
+  "projectFilePath": "D:\\Programme\\C#\\Unity Server\\ClientApp\\ClientApp\\ClientApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\fabia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\fabia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
