@@ -1,0 +1,89 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Android;
+
+
+public class FileSearcher : MonoBehaviour
+{
+    private string start, path;
+    public GameObject setAudios, parent, addTrack;
+    private GameObject newObject;
+    private GameObject[] Button;
+    string[] subpath;
+    GameObject dialog = null;
+    //public UnityEngine.UI.RawImage _UiRawImage;
+
+    private void Start()
+    {
+        start = Application.dataPath;
+        Permission.RequestUserPermission(Permission.ExternalStorageWrite); //Berechtigungsabfrage
+    }
+
+    public void refreshLib()
+    {
+
+#if UNITY_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageRead);
+            dialog = new GameObject();
+        }
+        path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+#endif
+#if !UNITY_ANDROID
+        path = Path.GetPathRoot(start);     //nimmt den Hauptpfad des Systems 
+#endif
+        StartCoroutine(searchFile(path)); //Sowas wie ein Thread der gestartet wird
+
+    }
+    public IEnumerator searchFile(string path)
+    {
+#if UNITY_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+                {
+                    yield return dialog;
+                }
+                else if (dialog != null)
+                {
+                    Destroy(dialog);
+                }
+#endif
+            foreach (string mp3 in Directory.EnumerateFiles(path, "*.mp3", SearchOption.TopDirectoryOnly)) //Windows sucht die Filese, Android kommt nicht in die schleife
+            {
+                try                 // try-catch, da manche folder keine Berechtigung zulassen
+                {
+                    newObject = GameObject.Instantiate(addTrack, parent.transform); //Objekt wird erstellt (ist aber nur für Unity wichtig) kannst alles im try ignorieren
+                    newObject.name = Path.GetFileName(mp3);
+                    Text NewText = newObject.GetComponentInChildren<Text>();
+                    NewText.text = Path.GetFileName(mp3);
+                    newObject.GetComponent<SaveAudio>().savetheURL(mp3);
+                    WWW www = new WWW(mp3);
+                    if (www.textureNonReadable.isReadable)
+                    {
+                        UnityEngine.UI.RawImage _UiRawImage;
+                        Texture2D texture = new Texture2D(1, 1);
+                        www.LoadImageIntoTexture(texture);
+                        newObject.GetComponentInChildren<RawImage>().texture = texture;
+
+                    }
+                    newObject.SetActive(true);
+                }
+                catch (Exception ex) { /*Debug.Log(ex);*/ }
+            yield return mp3; //Abgefahrener Shit für den "Thread"
+            }
+            foreach (string subfolder in Directory.GetDirectories(path))
+            {
+                try
+                {
+                    StartCoroutine(searchFile(subfolder)); //Rekrusiver aufruf um alle Subfolder zu durchsuchen
+                }
+                catch (Exception ex) { }
+                yield return subfolder;
+        }
+        yield return path;
+    }
+}
